@@ -5,6 +5,6 @@ This repository contains a reference library of code used for various ETL and mo
 It is made public and available under an MIT license in the spirit of open source collaboration.
 
 Contents:
-1. 
-2.
+1. csvConsolidation.py \\
+2. table_ETL.py \\
 3.
