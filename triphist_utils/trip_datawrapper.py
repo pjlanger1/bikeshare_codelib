@@ -13,6 +13,10 @@ def get_triphistory(yearmonth):
         
     response = requests.get(url)
 
+    dtype_mapping = {
+    'start_station_id': str,
+    'end_station_id': str}
+
     #Check if the request was successful (status code 200)
     if response.status_code == 200:
 
@@ -21,7 +25,7 @@ def get_triphistory(yearmonth):
         for file_name in zip_file.namelist():
             if file_name.endswith('.csv'):
                 csv_file = zip_file.open(file_name)
-                df = pd.read_csv(csv_file)
+                df = pd.read_csv(csv_file,dtype=dtype_mapping)
                 return df
     else:
         print("400: No File")
