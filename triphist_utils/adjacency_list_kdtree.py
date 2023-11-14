@@ -1,3 +1,16 @@
+#This is a very fast method, which uses a k-d tree data structure to enable quick adjacency relation look-ups
+#The previous version relied upon O(n^2) pairwise comparisons, this is an orders of magnitude improvement.
+
+#loading the dependencies:
+import pandas as pd
+from scipy.spatial import cKDTree
+
+
+#Method input: raw dataframe from Lyft's citibike data repo - Monthly Dataset from their S3 bucket.
+# This file can be obtained by calling trip_datawrapper(*args) with month and date of desired snapshot
+
+#Output: a dictionary of the four closest stations using flat-earth (non-geodesic) distance approximates through a k-d tree.
+
 def create_adjacency_list(df):
 
     #preprocessing raw downloaded tripfile:
