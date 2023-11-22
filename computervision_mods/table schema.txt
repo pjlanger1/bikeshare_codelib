@@ -1,0 +1,93 @@
+query: 
+
+data = {
+    'query': '''
+        query {
+            __schema {
+                types {
+                    name
+                    kind
+                    fields {
+                        name
+                        type {
+                            name
+                        }
+                    }
+                }
+            }
+        }
+    ''',
+    'variables': {}
+}
+
+response:
+
+
+{'data': {'__schema': {'types': [{'name': '__Directive',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'name', 'type': {'name': None}},
+      {'name': 'description', 'type': {'name': 'String'}},
+      {'name': 'locations', 'type': {'name': None}},
+      {'name': 'args', 'type': {'name': None}},
+      {'name': 'isRepeatable', 'type': {'name': None}}]},
+    {'name': '__DirectiveLocation', 'kind': 'ENUM', 'fields': None},
+    {'name': '__EnumValue',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'name', 'type': {'name': None}},
+      {'name': 'description', 'type': {'name': 'String'}},
+      {'name': 'isDeprecated', 'type': {'name': None}},
+      {'name': 'deprecationReason', 'type': {'name': 'String'}}]},
+    {'name': '__Field',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'name', 'type': {'name': None}},
+      {'name': 'description', 'type': {'name': 'String'}},
+      {'name': 'args', 'type': {'name': None}},
+      {'name': 'type', 'type': {'name': None}},
+      {'name': 'isDeprecated', 'type': {'name': None}},
+      {'name': 'deprecationReason', 'type': {'name': 'String'}}]},
+    {'name': '__InputValue',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'name', 'type': {'name': None}},
+      {'name': 'description', 'type': {'name': 'String'}},
+      {'name': 'type', 'type': {'name': None}},
+      {'name': 'defaultValue', 'type': {'name': 'String'}}]},
+    {'name': '__Schema',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'description', 'type': {'name': 'String'}},
+      {'name': 'types', 'type': {'name': None}},
+      {'name': 'queryType', 'type': {'name': None}},
+      {'name': 'mutationType', 'type': {'name': '__Type'}},
+      {'name': 'subscriptionType', 'type': {'name': '__Type'}},
+      {'name': 'directives', 'type': {'name': None}}]},
+    {'name': '__Type',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'kind', 'type': {'name': None}},
+      {'name': 'name', 'type': {'name': 'String'}},
+      {'name': 'description', 'type': {'name': 'String'}},
+      {'name': 'fields', 'type': {'name': None}},
+      {'name': 'interfaces', 'type': {'name': None}},
+      {'name': 'possibleTypes', 'type': {'name': None}},
+      {'name': 'enumValues', 'type': {'name': None}},
+      {'name': 'inputFields', 'type': {'name': None}},
+      {'name': 'ofType', 'type': {'name': '__Type'}},
+      {'name': 'specifiedByURL', 'type': {'name': 'String'}}]},
+    {'name': '__TypeKind', 'kind': 'ENUM', 'fields': None},
+    {'name': 'RootQuery',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'layers', 'type': {'name': None}},
+      {'name': 'showLayer', 'type': {'name': None}}]},
+    {'name': 'String', 'kind': 'SCALAR', 'fields': None},
+    {'name': 'Boolean', 'kind': 'SCALAR', 'fields': None},
+    {'name': 'Int', 'kind': 'SCALAR', 'fields': None},
+    {'name': 'Layer',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'color', 'type': {'name': None}},
+      {'name': 'links', 'type': {'name': None}}]},
+    {'name': 'Link',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'points', 'type': {'name': None}}]},
+    {'name': 'GeoPoint',
+     'kind': 'OBJECT',
+     'fields': [{'name': 'latitude', 'type': {'name': None}},
+      {'name': 'longitude', 'type': {'name': None}}]},
+    {'name': 'Decimal', 'kind': 'SCALAR', 'fields': None}]}}}
