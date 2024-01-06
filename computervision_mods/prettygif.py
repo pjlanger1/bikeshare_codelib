@@ -19,7 +19,8 @@ def convert_to_gif(input_folder, output_file, file_extension='.jpg', duration=10
         loop=loop
     )
 
-# Example usage
+
+#main
 input_folder = ' '
 output_file = '  '
 
