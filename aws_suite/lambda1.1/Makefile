@@ -10,6 +10,7 @@ venv:
 package: venv
 	cd $(VENV)/lib/$(PYTHON_VERSION)/site-packages && zip -r9 $(CURDIR)/$(PACKAGE) .
 	cd $(CURDIR) && zip -g $(PACKAGE) $(FUNCTION_NAME).py
+	zip -g $(PACKAGE) requirements.txt
 
 clean:
 	rm -rf $(VENV)
