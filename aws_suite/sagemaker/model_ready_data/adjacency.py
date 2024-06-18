@@ -6,7 +6,7 @@ from scipy.spatial import cKDTree
 #This serves as an API endpoint wrapper for data stored on Citibike/Lyft's Public AWS Bucket, serving ride history.
 
 def get_triphistory(yearmonth):
-    if yearmonth <= 201612: #formatting check
+    if yearmonth <= 201612 or yearmonth in [202404,202405]: #formatting check
         url = f'https://s3.amazonaws.com/tripdata/{yearmonth}-citibike-tripdata.zip'
     else:
         url = f'https://s3.amazonaws.com/tripdata/{yearmonth}-citibike-tripdata.csv.zip'
