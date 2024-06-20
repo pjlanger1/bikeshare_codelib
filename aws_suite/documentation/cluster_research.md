@@ -63,8 +63,18 @@ Below are the summarized characteristics of each cluster as well as their propor
 
 ### Figures
 
+![Geographic Distribution Clustered Stations](/aws_suite/documentation/bin/bikeshare_62024.png)
+  *Figure 1: Visualization of clusters by Lat-Lon based onn mean hourly net demand*
+
 ![Demand for Pick-Ups from Clustered Stations](/aws_suite/documentation/bin/bsharechart1a.png)
-  *Figure 2: Visualization of clusters by mean hourly pick-up demand*
+  *Figure 2a: Visualization of clusters by mean hourly Pick-up demand*
+
+![Demand for Drop-Offs from Clustered Stations](/aws_suite/documentation/bin/bsahrepe2.png)
+  *Figure 2b: Visualization of clusters by mean hourly Drop-off demand*
+
+![Linear Separability of Demand Patterns](/aws_suite/documentation/bin/bshare_pca.png)
+  *Figure 3: Visualization of Reduced Dimension Spaces (Pick-up Vs. Drop-Off) Lends linear separability well*
+
 
 ## Discussion
 
