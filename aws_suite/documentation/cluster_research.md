@@ -1,4 +1,6 @@
-# Cluster Research Summer 2024
+# Cluster Research - BikeShare station-level demand forecasting
+
+## Summer 2024
 
 ## Introduction
 
