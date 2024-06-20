@@ -84,6 +84,11 @@ The hotspots (red and orange) also correspond well to locations of large commuti
 
 The green stations are also providing an important gradient for understanding system evolution as a whole from creation. The colors of the map very clearly show the evolution of the system.
 
+Figure 2a and 2b - demonstrate that to the standard of a 95% confidence interval (assuming gaussian) the differences in pattern appear to hold and be statistically significant.
+
+Figure 3 - demonstration of linear separability in the reduced space: on the basis of orthogonal features intended to explain as much variance as possible, the clusters can be separated by intensity of demand. the PCA was fed scaled features corresponding to intensity of demand for pick-up and drop-off of bikes on both weekdays and weekends.
+therefore, the separability can be interpreted in the same way.
+
 ## Conclusion
 
 Clustering on the basis of a reduced dimension demand vector appears successful and defensible:
