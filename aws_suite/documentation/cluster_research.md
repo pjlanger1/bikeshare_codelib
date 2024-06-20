@@ -40,6 +40,8 @@ Data preprocessing steps included:
 - All the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes aggregate further into cluster level measures.
 
 ![Cluster Distribution](/aws_suite/documentation/bin/bshare_psych2.png)
+
+![Map of these Two Stations](/aws_suite/documentation/bin/cb_pp_map.png)
   
   *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
 
