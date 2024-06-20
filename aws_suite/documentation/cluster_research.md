@@ -62,8 +62,8 @@ Below are the summarized characteristics of each cluster as well as their propor
 
 
 ### Figures
-**Demand for Pick-Ups from Clustered Stations**
-[Cluster Distribution](/aws_suite/documentation/bin/bsharechart1a.png)
+
+![Demand for Pick-Ups from Clustered Stations](/aws_suite/documentation/bin/bsharechart1a.png)
   *Figure 2: Visualization of clusters by mean hourly pick-up demand*
 
 ## Discussion
