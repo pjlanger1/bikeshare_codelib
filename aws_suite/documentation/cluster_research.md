@@ -33,7 +33,9 @@ Data preprocessing steps included:
 ## Data Structure
 - Sliced each station up into starting and ending counts at the end of each hour.
 - Here's a lighthearted look into a side question: *does visibility of a station make much of a difference to demand on its bikes, relative to a nearby (arbitrarily close <0.1 miles away) station.
-- ![Cluster Distribution](/aws_suite/documentation/bin/bshare_psych.png)
+- Anyway all the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes below aggregate further into cluster level measures.
+
+![Cluster Distribution](/aws_suite/documentation/bin/bshare_psych.png)
   
   *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
 
