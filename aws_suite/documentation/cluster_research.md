@@ -47,7 +47,11 @@ Data preprocessing steps included:
 
 - These two stations are a block apart, and less than 1/10 of a mile apart. The more popular of the two exists right in front of the southwestern entrance of Prospect Park.  The less popular of the two exists a 2-3 min walk down the same street.
 
-- This example should illustrate and inform the theory behind clustering stations on more than just geography
+- This example should illustrate and inform the theory behind clustering stations on more than just geography.
+
+- **The more popular of the two stations is classified by our clustering as a 'highest acivity' station**
+
+- **The less popular is a middle-level activity station**
 
 ### Custom Algorithm for balancing community detection with clustering of historical average patterns
 1. **Standard Scale (Lat,Lon) and 1 x 24 vector embedding of mean hourly historical demand**
