@@ -5,26 +5,35 @@
 This document presents the findings of our clustering analysis towards developing LSTM 1.0. 
 The goal of this analysis is to identify meaningful clustering of stations within the system on the basis of geography and traffic patterns.
 
+For LSTM1.0 model, we're trying to quantify and predict pick up and drop off demand on the station level, modeled as a network as well as with exogenous variables.
+
 ## Objectives
 
-- To understand the distribution of data points.
-- To identify distinct groups or clusters within the data.
+- To understand how stations' demand patterns vary over time, on average - interested in intraday seasonality.
+- To contextualize those demand patterns in geography/ what we know about this transit network & transit networks, broadly.
+- To identify distinct patterns, in magnitude or shape of average demand graphs, cluster into categories of volume [high, med, low]
 - To analyze the characteristics that differentiate these groups.
+- Explore the suitability of these clusters for inclusion in an embeddings layer of LSTM1.0
 
 ## Methodology
 
 ### Data Collection
 
-Data was collected from [source or database](#), which includes various metrics relevant to our study.
+Data was collected using Transit Ventures' [API endpoint wrapper for trip history](https://github.com/pjlanger1/bikeshare_codelib/blob/2bc199b78f185f1234d018b29703b193ecc01de0/model_estimation/v1.0/model_ready_data/data_get.py) and analysis library.
+
+Notebook will be shared.
 
 ### Data Preprocessing
 
 Data preprocessing steps included:
 - Normalization of data to ensure uniform scale.
-- Handling missing values through imputation.
-- Outlier detection and removal for cleaner and more accurate analysis.
+- Handling missing values through imputation or 0 replacement
+- Removal of Hoboken/Jersey City Citibike Stations from the test set.
+
+##Structure
 
 ### Clustering Algorithm
+
 
 We employed the K-means clustering algorithm for this analysis:
 1. **Initialization**: Set the number of clusters K and randomly initialize the cluster centroids.
