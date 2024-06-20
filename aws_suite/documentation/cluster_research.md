@@ -64,32 +64,35 @@ Below are the summarized characteristics of each cluster as well as their propor
 ### Figures
 
 ![Geographic Distribution Clustered Stations](/aws_suite/documentation/bin/bikeshare_62024.png)
-  *Figure 1: Visualization of clusters by Lat-Lon based onn mean hourly net demand*
+*Figure 1: Visualization of clusters by Lat-Lon based onn mean hourly net demand*
 
 ![Demand for Pick-Ups from Clustered Stations](/aws_suite/documentation/bin/bsharechart1a.png)
-  *Figure 2a: Visualization of clusters by mean hourly Pick-up demand*
+*Figure 2a: Visualization of clusters by mean hourly Pick-up demand*
 
 ![Demand for Drop-Offs from Clustered Stations](/aws_suite/documentation/bin/bsahrepe2.png)
-  *Figure 2b: Visualization of clusters by mean hourly Drop-off demand*
+*Figure 2b: Visualization of clusters by mean hourly Drop-off demand*
 
-![Linear Separability of Demand Patterns](/aws_suite/documentation/bin/bshare_pca.png)
-  *Figure 3: Visualization of Reduced Dimension Spaces (Pick-up Vs. Drop-Off) Lends linear separability well*
+![Linear Separability of Demand Patterns](/aws_suite/documentation/bin/bshare_pca.png)  
+*Figure 3: Visualization of Reduced Dimension Spaces (Pick-up Vs. Drop-Off) Lends linear separability well*
 
 
 ## Discussion
 
-Discuss the implications of the findings and any interesting patterns observed. Highlight any trends or anomalies in the cluster characteristics.
+Figure 1 - the map lends itself well to our current understanding of the citibike system. the blue areas on the map overlap considerably and almost in all cases with areas to which the Citibike System has recently expanded. Bronx, Eastern Queens & SouthWest Brooklyn are the recent expansion zones, some of the installation projects ended as recntly as Q4 of 2023.
+
+The hotspots (red and orange) also correspond well to locations of large commuting destinations (lower manhattan and midtown west, with hotspots emerging in Williamsburg Brooklyn, Downtown Brooklyn and near large city parks like Central and Prospect. respectively. 
+
+The green stations are also providing an important gradient for understanding system evolution as a whole from creation. The colors of the map very clearly show the evolution of the system.
 
 ## Conclusion
 
-Summarize the key findings and potential applications of this clustering analysis. Discuss future work and improvements to the methodology.
+Clustering on the basis of a reduced dimension demand vector appears successful and defensible:
+(a) cluster assignment was able to linearly separate stations on the basis of historical demand patterns
+(b) clusters appeared to correspond to expert judgement on the function/dynamics/history of the network
+(c) this opens up many possibilities as far as combining geographic and historical features in a unified, balanced clustering problem space.
 
 ## References
 
 1. Author Name, Article Title, Journal, Year.
 2. Author Name, Book Title, Publisher, Year.
-
-## Appendix
-
-Additional supporting information or data tables can be provided here.
 
