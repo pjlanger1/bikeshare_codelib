@@ -31,6 +31,8 @@ Data preprocessing steps included:
 - Removal of Hoboken/Jersey City Citibike Stations from the test set.
 
 ##Structure
+- ![Cluster Distribution](aws_suite/documentation/bin/bshare_psych.png)
+  *Figure 1: Visualization of clusters*
 
 ### Clustering Algorithm
 
@@ -53,7 +55,7 @@ The clustering process identified X distinct clusters. Below are the summarized 
 
 ### Figures
 
-- ![Cluster Distribution](path_to_figure.png)
+- ![Cluster Distribution](aws_suite/documentation/bin/bshare_psych.png)
   *Figure 1: Visualization of clusters*
 
 ## Discussion
