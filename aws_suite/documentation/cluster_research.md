@@ -30,7 +30,7 @@ Data preprocessing steps included:
 - Handling missing values through imputation or 0 replacement
 - Removal of Hoboken/Jersey City Citibike Stations from the test set.
 
-## Data Structure
+### Data Structure
 - Sliced each station up into starting and ending counts at the end of each hour.
 - Here's a lighthearted look into a side question: *does visibility of a station make much of a difference to demand on its bikes, relative to a nearby (arbitrarily close <0.1 miles away) station.
 - Anyway all the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes below aggregate further into cluster level measures.
@@ -40,7 +40,6 @@ Data preprocessing steps included:
   *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
 
 ### Clustering Algorithm
-
 
 We employed the K-means clustering algorithm for this analysis:
 1. **Initialization**: Set the number of clusters K and randomly initialize the cluster centroids.
