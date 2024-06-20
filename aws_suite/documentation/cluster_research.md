@@ -31,13 +31,21 @@ Data preprocessing steps included:
 - Removal of Hoboken/Jersey City Citibike Stations from the test set.
 
 ### Data Structure
-- Sliced each station up into starting and ending counts at the end of each hour.
-- Here's a lighthearted look into a side question: *does visibility of a station make much of a difference to demand on its bikes, relative to a nearby (arbitrarily close <0.1 miles away) station.
-- Anyway all the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes below aggregate further into cluster level measures.
+- Sliced each station up into starting and ending counts at the end of each hour, take mean, variance measurements.
+- each station has a 0 indexed vector for ex. (1,1,1,0,0,0,1,1,2,1,1,0,2,2,3,4,3,2,1,1,1,1,1,0), where the index represents the hour and the value represents the average demand for that hour for that station, over time.
+
+### A Brain-Teaser
+- Here's a lighthearted look into a side question: *does visibility of a station make much of a difference to demand on its bikes, relative to a nearby (arbitrarily close <0.1 miles away) station, see the images below.
+  
+- All the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes aggregate further into cluster level measures.
 
 ![Cluster Distribution](/aws_suite/documentation/bin/bshare_psych2.png)
   
   *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
+
+- These two stations are a block apart, and less than 1/10 of a mile apart. The more popular of the two exists right in front of the southwestern entrance of Prospect Park.  The less popular of the two exists a 2-3 min walk down the same street.
+
+- This example should illustrate and inform the theory behind clustering stations on more than just geography
 
 ### Custom Algorithm for balancing community detection with clustering of historical average patterns
 1. **Standard Scale (Lat,Lon) and 1 x 24 vector embedding of mean hourly historical demand**
