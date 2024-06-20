@@ -39,28 +39,32 @@ Data preprocessing steps included:
   
   *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
 
-### Clustering Algorithm
+### Custom Algorithm for balancing community detection with clustering of historical average patterns
+1. **Standard Scale (Lat,Lon) and 1 x 24 vector embedding of mean hourly historical demand**
+2. **Run PCA on the 24 dimensional hourly demand** We're looking for linear separability, so we only want PC1 from any PCA we run on start demand.
+   results can also be run on end_demand and weekend-weekday flavors of both measures.
+3. **Once we've obtained that/those PCs, cluster on their basis.**
+4. **Append cluster ID to (Lat,Lon) and run K-means clustering on it. We want to detect communities within communities, so clusters of different activity type in various geographic regions. Adjust resolution (k parameter) to achieve desired results.**
 
-We employed the K-means clustering algorithm for this analysis:
-1. **Initialization**: Set the number of clusters K and randomly initialize the cluster centroids.
-2. **Assignment**: Assign each data point to the nearest cluster centroid.
-3. **Update**: Recompute the centroids based on the assignments.
-4. **Repeat**: Continue the assignment and update steps until convergence.
 
 ## Results
 
 ### Overview
 
-The clustering process identified X distinct clusters. Below are the summarized characteristics of each cluster:
+The clustering process identified 4 distinct clusters.
 
-- **Cluster 1**: Description or dominant characteristics.
-- **Cluster 2**: Description or dominant characteristics.
-- **Cluster 3**: Description or dominant characteristics.
+Below are the summarized characteristics of each cluster as well as their proportion of stations in the system
+
+- **Low Activity**: (54%) - Low Demand on Weekdays & Weekends (~1 bike/hour, on average). Geographically, these are the extents or areas to which citibike has recently moved.
+- **Middle Activity**: (26%) - Middling Demand (>1 bike/hour, on average).
+- **High Activity**: (16%) - High Demand (Daily Seasonality is much more apparent
+- **Highest Activity** (4%) - Highest Demand, unique from high activity pattern
+
 
 ### Figures
-
-- ![Cluster Distribution](aws_suite/documentation/bin/bshare_psych.png)
-  *Figure 1: Visualization of clusters*
+**Demand for Pick-Ups from Clustered Stations**
+[Cluster Distribution](aws_suite/documentation/bin/bsharechart1a.png)
+  *Figure 2: Visualization of clusters by mean hourly pick-up demand*
 
 ## Discussion
 
