@@ -3,83 +3,8 @@ from astral.sun import sun
 from astral import LocationInfo
 import numpy as np
 from pytz import timezone
-from datetime import datetime, timedelta
-
-def get_weather(path, freq):
-    import numpy as np
-    from sklearn.preprocessing import MultiLabelBinarizer
-    if isinstance(path, list):
-        df = pd.DataFrame()
-        for p in path:
-            df = pd.concat([df, pd.read_csv(p)], ignore_index=True)
-    else:
-        df = pd.read_csv(path)
-    
-    #rename columns explicitly to match expected format
-    df.columns = ['city', 'time', 'max_temp', 'min_temp', 'temp', 'wind_chill', 'heat_index',
-                  'precip', 'snow', 'snow_depth', 'wind_speed', 'wind_direction', 'wind_gust',
-                  'visibility', 'cloud_cover', 'humid', 'conditions']
-
-    df = df.drop('city',axis = 1)
-    #convert 'time' column to datetime with the corrected format
-    df['time'] = pd.to_datetime(df['time'], format='%m/%d/%Y %H:%M:%S')
-    
-    #replace all NaNs with zero
-    df.fillna(0, inplace=True)
-    
-    #one-hot encoding the 'conditions' column
-    if 'conditions' in df.columns:
-        df['conditions'] = df['conditions'].astype(str).replace('0', 'None').str.split(', ').apply(lambda x: [item.strip() + '_cond' for item in x])
-        mlb = MultiLabelBinarizer()
-        conditions_encoded = mlb.fit_transform(df['conditions'])
-        new_columns = [label.lower().replace(', ', '_').replace(' ', '_') for label in mlb.classes_]
-        conditions_df = pd.DataFrame(conditions_encoded, columns=new_columns, index=df.index)
-        df = pd.concat([df.drop('conditions', axis=1), conditions_df], axis=1)
-    
-    #drop duplicate times
-    df = df.drop_duplicates(subset='time', keep='first')
-    
-    boole, liste = check_time_increments(df,'time',df['time'].min(),df['time'].max())
-    
-    if not boole:
-        cols = ['max_temp', 'min_temp', 'temp', 'wind_chill', 'heat_index',
-                'precip', 'snow', 'snow_depth', 'wind_speed', 'wind_direction',
-                'wind_gust', 'visibility', 'cloud_cover', 'humid', 'clear_cond',
-                'none_cond', 'overcast_cond', 'partially_cloudy_cond', 'rain_cond',
-                'snow_cond']
-        
-        #prepare a DataFrame with the missing times
-        missing_data = pd.DataFrame({
-            'time': liste,
-            **{col: 0 if col != 'none_cond' else 1 for col in cols}  # Setting none_cond to 1, others to 0
-        })
-
-    #concatenate the missing data to the original DataFrame
-    df = pd.concat([df, missing_data])
-    df = df.sort_values('time')
-    
-    #keep fixing bad rows
-    df = replace_rows_based_on_condition(df)
-    df = replace_rows_based_on_temp(df)
-    
-    #encoding time
-    encoded_time = df['time'].apply(lambda x: encode_cyclic(x)).apply(pd.Series)
-    
-    #encoding sun variables
-    ecs = apply_sun(encoded_time)
-    
-    df = pd.merge(df, ecs, on='time', how='left')
-
-    # Handling different frequencies
-    if freq == 15:
-        pass  # Data is already assumed to be in 15-minute intervals
-    elif freq == 60:
-        # Resample data to 1-hour intervals
-        df = df.set_index('time')
-        df = df.resample('1H').mean().reset_index()
-        for nc in new_columns:
-            df[nc] = np.where(df[nc] > 0, 1, 0)
-    return df
+from datetime import datetime, timedelta, date
+import pandas as pd
 
 def check_time_increments(df, date_column, start_date, end_date):
     """
@@ -111,6 +36,82 @@ def check_time_increments(df, date_column, start_date, end_date):
         #print(f"Missing timestamps: {missing_times}")
         return (False,missing_times)
 
+def get_weather(path, freq):
+    import numpy as np
+    from sklearn.preprocessing import MultiLabelBinarizer
+    if isinstance(path, list):
+        df = pd.DataFrame()
+        for p in path:
+            df = pd.concat([df, pd.read_csv(p)], ignore_index=True)
+    else:
+        df = pd.read_csv(path)
+    
+    #rename columns explicitly to match expected format
+    df.columns = ['city', 'time', 'max_temp', 'min_temp', 'temp', 'wind_chill', 'heat_index',
+                  'precip', 'snow', 'snow_depth', 'wind_speed', 'wind_direction', 'wind_gust',
+                  'visibility', 'cloud_cover', 'humid', 'conditions']
+
+    df = df.drop('city',axis = 1)
+    #convert 'time' column to datetime with the corrected format
+    df['time'] = pd.to_datetime(df['time'], format='%m/%d/%Y %H:%M:%S')
+    #df = df[(df['time'].dt.month <= 4) &(df['time'].dt.year == 2021)]
+    #replace all NaNs with zero
+    df.fillna(0, inplace=True)
+    
+    #one-hot encoding the 'conditions' column
+    if 'conditions' in df.columns:
+        df['conditions'] = df['conditions'].astype(str).replace('0', 'None').str.split(', ').apply(lambda x: [item.strip() + '_cond' for item in x])
+        mlb = MultiLabelBinarizer()
+        conditions_encoded = mlb.fit_transform(df['conditions'])
+        new_columns = [label.lower().replace(', ', '_').replace(' ', '_') for label in mlb.classes_]
+        conditions_df = pd.DataFrame(conditions_encoded, columns=new_columns, index=df.index)
+        df = pd.concat([df.drop('conditions', axis=1), conditions_df], axis=1)
+    
+    #drop duplicate times
+    df = df.drop_duplicates(subset='time', keep='first')
+    
+    boole, liste = check_time_increments(df,'time',df['time'].min(),df['time'].max())
+    
+    if not boole:
+        cols = ['max_temp', 'min_temp', 'temp', 'wind_chill', 'heat_index',
+                'precip', 'snow', 'snow_depth', 'wind_speed', 'wind_direction',
+                'wind_gust', 'visibility', 'cloud_cover', 'humid', 'clear_cond',
+                'none_cond', 'overcast_cond', 'partially_cloudy_cond', 'rain_cond',
+                'snow_cond']
+        
+        #prepare a DataFrame with the missing times
+        missing_data = pd.DataFrame({
+            'time': liste,
+            **{col: 0 if col != 'none_cond' else 1 for col in cols}  # Setting none_cond to 1, others to 0
+        })
+
+    #concatenate the missing data to the original DataFrame
+        df = pd.concat([df, missing_data])
+    df = df.sort_values('time')
+    
+    #keep fixing bad rows
+    df = replace_rows_based_on_condition(df)
+    df = replace_rows_based_on_temp(df)
+    
+    #encoding time
+    encoded_time = df['time'].apply(lambda x: encode_cyclic(x)).apply(pd.Series)
+    
+    #encoding sun variables
+    ecs = apply_sun(encoded_time)
+    
+    df = pd.merge(df, ecs, on='time', how='left')
+
+    # Handling different frequencies
+    if freq == 15:
+        pass  # Data is already assumed to be in 15-minute intervals
+    elif freq == 60:
+        # Resample data to 1-hour intervals
+        df = df.set_index('time')
+        df = df.resample('1H').mean().reset_index()
+        for nc in new_columns:
+            df[nc] = np.where(df[nc] > 0, 1, 0)
+    return df
+
 def encode_cyclic(datetime_obj):
     max_dict = {'month': 12, 'day': 31, 'hour': 24, 'minute': 60, 'day_of_week': 7}
     ll = {}
@@ -138,19 +139,23 @@ def load_astral():
 
 def get_sun(day, month, year, city):
     try:
-        s = sun(city.observer, date=datetime(year, month, day))
-    except ValueError as e:
-        # If no sunrise/sunset times are found for the specified date, try the next day
-        next_day = datetime(year, month, day) + timedelta(days=1)
-        s = sun(city.observer, date=next_day)
+        current_date = datetime(year, month, day)
+        s = sun(city.observer, date=current_date)
+    except ValueError:
+        # Move to the next day if no data is available
+        surrent_date = current_date
+        surrent_date += timedelta(days=1)
+        s = sun(city.observer, date=surrent_date)
     
-    # Define NYC timezone
     nyc_tz = timezone('America/New_York')
+    expected_date = current_date.strftime('%Y-%m-%d')  # This should be the date all times are set to
     
-    # Convert sunrise and sunset times to NYC time
-    sun_times = {key: s[key].astimezone(nyc_tz).strftime('%Y-%m-%d %H:%M:%S') for key in s.keys()}
-    
-    
+    # Format and adjust all sun times to the expected_date
+    sun_times = {}
+    for key in s.keys():
+        time_with_correct_date = datetime.strptime(f"{expected_date} {s[key].astimezone(nyc_tz).strftime('%H:%M:%S')}", '%Y-%m-%d %H:%M:%S')
+        sun_times[key] = time_with_correct_date.strftime('%Y-%m-%d %H:%M:%S')
+
     return sun_times
 
 def apply_sun(df):
@@ -166,9 +171,12 @@ def apply_sun(df):
         df['part_dark'] = 0
     if 'light' not in df.columns:
         df['light'] = 0
+    if 'holiday' not in df.columns:
+        df['holiday'] = 0
     
     #load location information
     city = load_astral()
+    us_holidays = holidays.country_holidays('US', subdiv='NY')
     
     #iterate each row in the df
     for index, row in df.iterrows():
@@ -177,6 +185,9 @@ def apply_sun(df):
         year = timestamp.year
         month = timestamp.month
         day = timestamp.day
+        
+        if date(year, month, day) in us_holidays:
+            df.loc[index,'holiday'] = 1
 
         #check if sun times for this day are already cached
         if (year, month, day) not in sun_cache:
@@ -209,7 +220,9 @@ def apply_sun(df):
             df.loc[index, 'dark'] = 0
             df.loc[index, 'part_dark'] = 0
             df.loc[index, 'light'] = 1
-      return df
+
+    
+    return df
 
 def replace_rows_based_on_condition(df):
     # Ensure the DataFrame is sorted by time (if not already)
