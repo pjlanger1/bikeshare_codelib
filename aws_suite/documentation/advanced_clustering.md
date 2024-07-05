@@ -32,8 +32,13 @@ Data preprocessing steps included:
 - Re-reading the PCA features and clusters derived from [Cluster Research Pt 1](https://github.com/pjlanger1/bikeshare_codelib/blob/4e79b2c9cec2cc39f841d57d2ae5be568e65a484/aws_suite/documentation/cluster_research.md)
 - Loading H3 networkx and the necessary sklearn utilities.
 
-### A Brain-Teaser
-- Here's a lighthearted look into a side question: *does visibility of a station make much of a difference to demand on its bikes, relative to a nearby (arbitrarily close <0.1 miles away) station, see the images below.
+### DBSCAN ON LAT-LON PAIRS
+- DBSCAN or Density-Based Spatial Clustering of Applications with Noise was our first pass attempt at refining our demand intensity clustering. We were especially interested if there were ways of pooling stations with common geography & demand patterns.
+Although we didn't know exactly how the clusters should be formed, we knew some properties we wanted them to have:
+
+--cover a distance smaller than a full neighborhood, eg. one cluster containing an enntire borough, county or even neighborhood would be unsuitable to the type of features we wanted to create, but we also did not at all want to create 2000 clusters out of the 2044 stations in scope.  
+
+DBSCAN and HDBSCAN 
   
 - All the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes aggregate further into cluster level measures.
 
