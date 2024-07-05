@@ -29,7 +29,7 @@ Notebook will be shared.
 ### Data Preprocessing
 
 Data preprocessing steps included:
-- Re-reading the PCA features derived from [API endpoint wrapper for trip history](https://github.com/pjlanger1/bikeshare_codelib/blob/2bc199b78f185f1234d018b29703b193ecc01de0/model_estimation/v1.0/model_ready_data/data_get.py) and analysis library.
+- Re-reading the PCA features derived from [Cluster Research Pt 1](https://github.com/pjlanger1/bikeshare_codelib/blob/e2745cdbc5f7c952694a480de611ec6564245479/aws_suite/documentation/covariate_research.md) 
 
 
 ### Data Structure
