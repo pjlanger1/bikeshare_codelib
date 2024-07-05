@@ -29,12 +29,8 @@ Notebook will be shared.
 ### Data Preprocessing
 
 Data preprocessing steps included:
-- Re-reading the PCA features derived from [Cluster Research Pt 1](https://github.com/pjlanger1/bikeshare_codelib/blob/e2745cdbc5f7c952694a480de611ec6564245479/aws_suite/documentation/covariate_research.md) 
-
-
-### Data Structure
-- Sliced each station up into starting and ending counts at the end of each hour, take mean, variance measurements.
-- each station has a 0 indexed vector for ex. (1,1,1,0,0,0,1,1,2,1,1,0,2,2,3,4,3,2,1,1,1,1,1,0), where the index represents the hour and the value represents the average demand for that hour for that station, over time.
+- Re-reading the PCA features and clusters derived from [Cluster Research Pt 1](https://github.com/pjlanger1/bikeshare_codelib/blob/4e79b2c9cec2cc39f841d57d2ae5be568e65a484/aws_suite/documentation/cluster_research.md)
+- Loading H3 networkx and the necessary sklearn utilities.
 
 ### A Brain-Teaser
 - Here's a lighthearted look into a side question: *does visibility of a station make much of a difference to demand on its bikes, relative to a nearby (arbitrarily close <0.1 miles away) station, see the images below.
