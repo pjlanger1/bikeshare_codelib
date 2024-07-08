@@ -55,25 +55,45 @@ After some numerical tuning, we found optimal clusters.  However, there are some
 3. We ran a battery of statistical tests on the optimal clustering from DBSCAN such as the Davies-Bouldin Index, the Calinski-Harabasz Index and the Silhouette Score (all from sklearn), and these optimal clusters poorly differentiated between clusters on both geography and demand intensity.
 
 
+HDBSCAN incorporates a hierarchical component to the clustering and doesn't require hyperparameter tuning.
+
+![HDBSCAN BEST CLUSTER RESULT](/aws_suite/documentation/bin/clust2/hdbscan_.png)
+
+Upon fitting this to our data, we found that again, HDBSCAN may be unsuitable to this problem or data, as the algorithm selected 8 clusters, most of which were non-contiguous. 
 
 
+### H3 SPATIAL REPRESENTATION
+
+About a decade ago, Uber released something called H3, which is a hexagonal spatial indexing system that tiles the globe with various sizes of hexagonal grid. Level 15 is extremely granular (think like almost address-level) and 7 Level 15 units comprise 1 Level 14 unit, and 7 Level 14 units comprise 1 Level 13 unit and so on. 
+
+In an effort to simplify the clustering away from methods that required numerical analysis of lat-lon pairs, we began exploring alternative representations of where stations lie on a map.
+
+![H3 Representation of Citibike Network in 11 and 10 resolution](/aws_suite/documentation/bin/clust2/h3_10res.png)
+
+Each lat-lon pair is generalized to a hexagonal area. In the plot above, we can see two different sizes the more granular resolution 11 and the larger resolution 10, colored by demand intensity.
+
+We see some of the gradient visible in the PCA reduction we did in our previous cluster research. 
+
+Perhaps by forming a network graph off of the adjacency concept we inherit from H3 representation, we can simplify community detection.
+
+![Overlapping Clusters on Epsilon <= .24](/aws_suite/documentation/bin/clust2/h3overlap.png)
+
+Here we created our own algorithm that colored an NYC representation in H3 by the average demand intensity value in its hexagon.
+
+We began by representing our data in H3 at Resolution 11
+
+If a hexagon and its nearest 7 neighbors were within more or less the same demand intensity strata, we'd allow them to agglomorate into a new cluster at lower Resolution 10. clusters that were unable to agglomorate remained at their latest resolution level.
+
+This was semi successful, but the clusters didn't appear to be significant, and again struggled with the large uptown cluster problem we encountered with DBSCAN.
+
+Ultimately, we found a very simple method, Label Propagation to be effective and significant.
+
+![Label Propagation Clustering k = 86](/aws_suite/documentation/bin/clust2/h3_final_clust.png).
+
+Our best case performed quite well the task of balancing the densities of geography with those in the feature space, proposing 86 different clusters.
+
+![Focus: Cluster 21](/aws_suite/documentation/bin/clust2/bushw.png).
   
-  *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
-
-- These two stations are a block apart, and less than 1/10 of a mile apart. The more popular of the two exists right in front of the southwestern entrance of Prospect Park.  The less popular of the two exists a 2-3 min walk down the same street.
-
-- This example should illustrate and inform the theory behind clustering stations on more than just geography.
-
-- **The more popular of the two stations is classified by our clustering as a 'highest acivity' station**
-
-- **The less popular is a middle-level activity station**
-
-### Custom Algorithm for balancing community detection with clustering of historical average patterns
-1. **Standard Scale (Lat,Lon) and 1 x 24 vector embedding of mean hourly historical demand**
-2. **Run PCA on the 24 dimensional hourly demand** We're looking for linear separability, so we only want PC1 from any PCA we run on start demand.
-   results can also be run on end_demand and weekend-weekday flavors of both measures.
-3. **Once we've obtained that/those PCs, cluster on their basis.**
-4. **Append cluster ID to (Lat,Lon) and run K-means clustering on it. We want to detect communities within communities, so clusters of different activity type in various geographic regions. Adjust resolution (k parameter) to achieve desired results.**
 
 
 ## Results
@@ -90,43 +110,5 @@ Below are the summarized characteristics of each cluster as well as their propor
 - **Highest Activity** (4%) - Highest Demand, unique from high activity pattern
 
 
-### Figures
 
-![Geographic Distribution Clustered Stations](/aws_suite/documentation/bin/bikeshare_62024.png)
-*Figure 1: Visualization of clusters by Lat-Lon based onn mean hourly net demand*
-
-![Demand for Pick-Ups from Clustered Stations](/aws_suite/documentation/bin/bsharechart1a.png)
-*Figure 2a: Visualization of clusters by mean hourly Pick-up demand*
-
-![Demand for Drop-Offs from Clustered Stations](/aws_suite/documentation/bin/bsahrepe2.png)
-*Figure 2b: Visualization of clusters by mean hourly Drop-off demand*
-
-![Linear Separability of Demand Patterns](/aws_suite/documentation/bin/bshare_pca.png)  
-*Figure 3: Visualization of Reduced Dimension Spaces (Pick-up Vs. Drop-Off) Lends linear separability well*
-
-
-## Discussion
-
-Figure 1 - the map lends itself well to our current understanding of the citibike system. the blue areas on the map overlap considerably and almost in all cases with areas to which the Citibike System has recently expanded. Bronx, Eastern Queens & SouthWest Brooklyn are the recent expansion zones, some of the installation projects ended as recntly as Q4 of 2023.
-
-The hotspots (red and orange) also correspond well to locations of large commuting destinations (lower manhattan and midtown west, with hotspots emerging in Williamsburg Brooklyn, Downtown Brooklyn and near large city parks like Central and Prospect. respectively. 
-
-The green stations are also providing an important gradient for understanding system evolution as a whole from creation. The colors of the map very clearly show the evolution of the system.
-
-Figure 2a and 2b - demonstrate that to the standard of a 95% confidence interval (assuming gaussian) the differences in pattern appear to hold and be statistically significant.
-
-Figure 3 - demonstration of linear separability in the reduced space: on the basis of orthogonal features intended to explain as much variance as possible, the clusters can be separated by intensity of demand. the PCA was fed scaled features corresponding to intensity of demand for pick-up and drop-off of bikes on both weekdays and weekends.
-therefore, the separability can be interpreted in the same way.
-
-## Conclusion
-
-Clustering on the basis of a reduced dimension demand vector appears successful and defensible:
-(a) cluster assignment was able to linearly separate stations on the basis of historical demand patterns
-(b) clusters appeared to correspond to expert judgement on the function/dynamics/history of the network
-(c) this opens up many possibilities as far as combining geographic and historical features in a unified, balanced clustering problem space.
-
-## References
-
-1. Author Name, Article Title, Journal, Year.
-2. Author Name, Book Title, Publisher, Year.
 
