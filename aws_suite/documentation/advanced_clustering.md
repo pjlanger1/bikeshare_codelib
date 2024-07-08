@@ -86,29 +86,40 @@ If a hexagon and its nearest 7 neighbors were within more or less the same deman
 
 This was semi successful, but the clusters didn't appear to be significant, and again struggled with the large uptown cluster problem we encountered with DBSCAN.
 
+## Results
+
 Ultimately, we found a very simple method, Label Propagation to be effective and significant.
 
 ![Label Propagation Clustering k = 86](/aws_suite/documentation/bin/clust2/h3_final_clust.png).
 
-Our best case performed quite well the task of balancing the densities of geography with those in the feature space, proposing 86 different clusters.
+Our best case performed quite well the task of balancing the densities of geography with those in the feature space, proposing 86 different clusters, many of which outline service areas and neighborhoods. 
+
+Davies-Bouldin Index: 0.9184527127187622
+
+Calinski-Harabasz Index: 2348.780791949801
+
+Silhouette Score: 0.197
+
+These results are quite promising, and don't give us cause to reject the hypothesis that cluster construction is significant.
 
 ![Focus: Cluster 21](/aws_suite/documentation/bin/clust2/bushw.png).
   
+This is an example of a sub neighborhood-level demarcation, which happens to coincide with the northern part of Ridgewood and Buskwick, in the L train corridor. The stations were installed at a similar time, and have quite similar demand patterns in this region.  
 
+### Reviewing Our Demand Intensity Clustering
 
-## Results
-
-### Overview
+We ran some statistical tests to further validate the clustering integrity of our initial demand intensity clusters. Recall:
 
 The clustering process identified 4 distinct clusters.
-
-Below are the summarized characteristics of each cluster as well as their proportion of stations in the system
 
 - **Low Activity**: (54%) - Low Demand on Weekdays & Weekends (~1 bike/hour, on average). Geographically, these are the extents or areas to which citibike has recently moved.
 - **Middle Activity**: (26%) - Middling Demand (>1 bike/hour, on average).
 - **High Activity**: (16%) - High Demand (Daily Seasonality is much more apparent
 - **Highest Activity** (4%) - Highest Demand, unique from high activity pattern
 
+* Metrics:
+Davies-Bouldin Index: 0.6828469084402775
+Calinski-Harabasz Index: 4219.7328922751385
+Silhouette Score: 0.486
 
-
-
+The clusters are well-formed per these tests, however, the silhouette score may indicate room for further clustering (maybe a higher k), on more dimensions.
