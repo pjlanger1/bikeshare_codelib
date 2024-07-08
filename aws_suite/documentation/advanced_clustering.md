@@ -39,12 +39,24 @@ Although we didn't know exactly how the clusters should be formed, we knew some 
 --cover a distance smaller than a full neighborhood, eg. one cluster containing an enntire borough, county or even neighborhood would be unsuitable to the type of features we wanted to create, but we also did not at all want to create 2000 clusters out of the 2044 stations in scope.  
 
 DBSCAN and HDBSCAN 
-  
-- All the data we used for this section was a vector of mean demand values per hour, per station, which we sometimes aggregate further into cluster level measures.
 
-![Cluster Distribution](/aws_suite/documentation/bin/bshare_psych2.png)
+DBSCAN takes an epsilon (max dist from cluster centroid) and min cluster size parameters, which we estimated at first using K-distance. Visually, we see an elbow around 0.3, meaning that, for the underlying data (in the underlying data's units), most observations are within 0.3 units of their neighbors. 
 
-![Map of these Two Stations](/aws_suite/documentation/bin/cb_pp_map.png)
+![K-Distance 0.3 implied](/aws_suite/documentation/bin/clust2/kdist_dbscan_.png)
+
+After some numerical tuning, we found optimal clusters.  However, there are some problems with this.
+
+![DBSCAN BEST CLUSTER RESULT](/aws_suite/documentation/bin/clust2/dbscan.png)
+
+1. DBSCAN classified many of the points in the most dense parts of the network as noise, which is not how we want to express the network topology, if anything we want to focus on the nuanced properties of those stations in particular.
+   
+2. DBSCAN also classified many fairly homogenous (in terms of being low-demand stations, contiguous to one another in uptown manhattan & the south bronx) - see the maroon cloud at the top of the above graphic. While technically accurate, we want more geographic differentiation.
+   
+3. We ran a battery of statistical tests on the optimal clustering from DBSCAN such as the Davies-Bouldin Index, the Calinski-Harabasz Index and the Silhouette Score (all from sklearn), and these optimal clusters poorly differentiated between clusters on both geography and demand intensity.
+
+
+
+
   
   *These two stations are a block or ~0.07 mi from one another. Why is one used so much more? Because more people see it, we suspect*
 
