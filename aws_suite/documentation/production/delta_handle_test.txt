@@ -1,0 +1,380 @@
+Output for Test 1 -> Station Delta Accumulation
+  
+Initialized processor with zeroed counts and residuals.
+Initial Data:
+{'num_docks_disabled': 0, 'num_bikes_available': 3, 'is_renting': 1, 'legacy_id': '380', 'num_scooters_available': 0, 'eightd_has_available_keys': False, 'num_bikes_disabled': 10, 'num_docks_available': 46, 'station_id': '66dbe571-0aca-11e7-82f6-3863bb44ef7c', 'num_scooters_unavailable': 0, 'num_ebikes_available': 2, 'is_returning': 1, 'last_reported': 1721669032, 'is_installed': 1}
+
+Update 1:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 3 to 2
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 46 to 47
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 2 to 1
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669032 to 1721669200
+Processed deltas: Bikes=-1, eBikes=-1, Docks=1
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 2:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669200 to 1721669261
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 3:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669261 to 1721669382
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 4:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669382 to 1721669503
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 5:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669503 to 1721669623
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 6:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669623 to 1721669744
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 7:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669744 to 1721669805
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 8:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669805 to 1721669865
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 0, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 9:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 2 to 3
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 47 to 46
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721669865 to 1721670042
+Processed deltas: Bikes=1, eBikes=0, Docks=-1
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 0}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 0}
+
+Update 10:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 3 to 4
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 46 to 45
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 1 to 2
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670042 to 1721670124
+Processed deltas: Bikes=1, eBikes=1, Docks=-1
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 11:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670124 to 1721670227
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 12:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670227 to 1721670410
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 13:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670410 to 1721670469
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 14:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670469 to 1721670589
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 15:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670589 to 1721670712
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 16:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670712 to 1721670831
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 17:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670831 to 1721670952
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 18:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721670952 to 1721671015
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 19:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671015 to 1721671072
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 20:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671072 to 1721671194
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 21:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 4 to 3
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 2 to 1
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671194 to 1721671333
+Processed deltas: Bikes=-1, eBikes=-1, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No correction possible, updating residuals.
+Updated residuals: {'classic': 0, 'ebikes': -1, 'docks': 0}
+residuals:
+{'classic': 0, 'ebikes': -1, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 1, 'ebike_ends': 1}
+
+Update 22:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 3 to 5
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 45 to 44
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 1 to 3
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671333 to 1721671394
+Processed deltas: Bikes=2, eBikes=2, Docks=-1
+Current residuals: {'classic': 0, 'ebikes': -1, 'docks': 0}
+Balance achieved with corrections applied.
+Correction possible, applying changes.
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 3}
+Resetting residuals.
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 3}
+
+Update 23:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 5 to 6
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 44 to 43
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 3 to 4
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671394 to 1721671457
+Processed deltas: Bikes=1, eBikes=1, Docks=-1
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 24:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671457 to 1721671555
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 25:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671555 to 1721671676
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 26:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 43 to 42
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671676 to 1721671780
+Processed deltas: Bikes=0, eBikes=0, Docks=-1
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No correction possible, updating residuals.
+Updated residuals: {'classic': 0, 'ebikes': 0, 'docks': -1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': -1}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 1, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 27:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 6 to 9
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 42 to 40
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671780 to 1721671821
+Processed deltas: Bikes=3, eBikes=0, Docks=-2
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': -1}
+Balance achieved with corrections applied.
+Correction possible, applying changes.
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+Resetting residuals.
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 28:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671821 to 1721671921
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 29:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721671921 to 1721672039
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 30:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 40 to 41
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721672039 to 1721672244
+Processed deltas: Bikes=0, eBikes=0, Docks=1
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No correction possible, updating residuals.
+Updated residuals: {'classic': 0, 'ebikes': 0, 'docks': 1}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 1}
+Confirmed Rides: {'classic_starts': 0, 'classic_ends': 4, 'ebike_starts': 2, 'ebike_ends': 4}
+
+Update 31:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 9 to 6
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 41 to 43
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 4 to 2
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721672244 to 1721672317
+Processed deltas: Bikes=-3, eBikes=-2, Docks=2
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 1}
+Balance achieved with corrections applied.
+Correction possible, applying changes.
+Confirmed rides: {'classic_starts': 1, 'classic_ends': 4, 'ebike_starts': 4, 'ebike_ends': 4}
+Resetting residuals.
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 1, 'classic_ends': 4, 'ebike_starts': 4, 'ebike_ends': 4}
+
+Update 32:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_available changed from 6 to 4
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_docks_available changed from 43 to 45
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 2 to 1
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721672317 to 1721672401
+Processed deltas: Bikes=-2, eBikes=-1, Docks=2
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 2, 'classic_ends': 4, 'ebike_starts': 5, 'ebike_ends': 4}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 2, 'classic_ends': 4, 'ebike_starts': 5, 'ebike_ends': 4}
+
+Update 33:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_disabled changed from 10 to 11
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_ebikes_available changed from 1 to 2
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721672401 to 1721672495
+Processed deltas: Bikes=0, eBikes=1, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 3, 'classic_ends': 4, 'ebike_starts': 5, 'ebike_ends': 5}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 3, 'classic_ends': 4, 'ebike_starts': 5, 'ebike_ends': 5}
+
+Update 34:
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | num_bikes_disabled changed from 11 to 10
+Station 66dbe571-0aca-11e7-82f6-3863bb44ef7c | last_reported changed from 1721672495 to 1721672619
+Processed deltas: Bikes=0, eBikes=0, Docks=0
+Current residuals: {'classic': 0, 'ebikes': 0, 'docks': 0}
+No residuals currently, trx in balance, recording
+Confirmed rides: {'classic_starts': 3, 'classic_ends': 4, 'ebike_starts': 5, 'ebike_ends': 5}
+residuals:
+{'classic': 0, 'ebikes': 0, 'docks': 0}
+Confirmed Rides: {'classic_starts': 3, 'classic_ends': 4, 'ebike_starts': 5, 'ebike_ends': 5}
