@@ -1,5 +1,7 @@
 Output for Test 1 -> Station Delta Accumulation
-  
+___________________________________________________
+ result: 100% correct over full live 34 minute run
+___________________________________________________
 Initialized processor with zeroed counts and residuals.
 Initial Data:
 {'num_docks_disabled': 0, 'num_bikes_available': 3, 'is_renting': 1, 'legacy_id': '380', 'num_scooters_available': 0, 'eightd_has_available_keys': False, 'num_bikes_disabled': 10, 'num_docks_available': 46, 'station_id': '66dbe571-0aca-11e7-82f6-3863bb44ef7c', 'num_scooters_unavailable': 0, 'num_ebikes_available': 2, 'is_returning': 1, 'last_reported': 1721669032, 'is_installed': 1}
