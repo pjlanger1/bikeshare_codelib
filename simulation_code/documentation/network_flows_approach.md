@@ -1,7 +1,8 @@
-# A Network Flows Approach to Understanding Bikesharing as Mass Transit
+# A Network Flows Approach to Modeling and Understanding Bicycle Sharing as Mass Transit
 
 **Author(s):** Peter Langer  
-**Affiliation:**  Transit Ventures
+**Affiliation:**  Transit Ventures  
+
 **Date:**  November 1, 2024
 
 ## Abstract
