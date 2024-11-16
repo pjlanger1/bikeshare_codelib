@@ -37,7 +37,8 @@ CREATE EXTERNAL TABLE IF NOT EXISTS weather_data (
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
 WITH SERDEPROPERTIES (
-    'serialization.format' = ','
+    'serialization.format' = ',',
+    "skip.header.line.count" = "1"
 ) 
 LOCATION 's3://cleanedcitibike/weather_sim_data'
 TBLPROPERTIES ('has_encrypted_data'='false');
