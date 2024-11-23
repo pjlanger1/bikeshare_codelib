@@ -22,12 +22,28 @@ CREATE EXTERNAL TABLE IF NOT EXISTS rawbikes1 (
 
 --next
   
-  CREATE TABLE rawbikes AS
+CREATE TABLE rawbikes AS
 SELECT * 
 FROM (
-    SELECT *,
-           ROW_NUMBER() OVER (PARTITION BY station_id, last_reported ORDER BY station_id) AS rn
-    FROM rawbikes1
+    SELECT 
+           rb.*, -- Select all columns from rawbikes1
+           nm.short_id, -- Add the short_id from num_map
+           
+           -- Convert Unix timestamp to a timestamp and round it to the nearest hour
+           DATE_ADD(
+               'hour',
+               -5, -- Subtract 5 hours for timezone adjustment
+               DATE_TRUNC('hour', FROM_UNIXTIME(rb.last_reported))
+           ) AS last_reported_nearest_hour, -- Adjusted and rounded to nearest hour
+
+           -- Partition by station_id and the rounded timestamp (not the original last_reported)
+           ROW_NUMBER() OVER (
+               PARTITION BY rb.station_id, DATE_TRUNC('hour', FROM_UNIXTIME(rb.last_reported))
+               ORDER BY rb.station_id
+           ) AS rn
+    FROM rawbikes1 AS rb
+    LEFT JOIN num_map AS nm
+    ON rb.station_id = nm.station_id -- Merge short_id from num_map
 ) ranked_rows
 WHERE rn = 1;
 
