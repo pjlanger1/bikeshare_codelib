@@ -1,5 +1,5 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS weather_data (
-    time TIMESTAMP,
+    time STRING,
     max_temp FLOAT,
     min_temp FLOAT,
     temp FLOAT,
