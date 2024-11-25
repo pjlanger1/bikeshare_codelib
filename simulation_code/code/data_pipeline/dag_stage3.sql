@@ -1,5 +1,5 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS weather_data (
-    time STRING,
+    time TIMESTAMP,
     max_temp FLOAT,
     min_temp FLOAT,
     temp FLOAT,
@@ -20,25 +20,13 @@ CREATE EXTERNAL TABLE IF NOT EXISTS weather_data (
     partially_cloudy_cond INT,
     rain_cond INT,
     snow_cond FLOAT,
-    month_sin FLOAT,
-    month_cos FLOAT,
-    day_sin FLOAT,
-    day_cos FLOAT,
-    hour_sin FLOAT,
-    hour_cos FLOAT,
-    minute_sin FLOAT,
-    minute_cos FLOAT,
-    day_of_week_sin FLOAT,
-    day_of_week_cos FLOAT,
     dark INT,
     part_dark INT,
     light INT,
     holiday INT
 )
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
-WITH SERDEPROPERTIES (
-    'serialization.format' = ',',
-    "skip.header.line.count" = "1"
-) 
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
 LOCATION 's3://cleanedcitibike/weather_sim_data'
-TBLPROPERTIES ('has_encrypted_data'='false');
+TBLPROPERTIES ('skip.header.line.count'='1');
