@@ -28,12 +28,12 @@ ON
 LEFT JOIN 
     rawbikes AS rb_origin
 ON 
-    bs.origin_station_id = rb_origin.station_id
+    bs.origin_station_id = rb_origin.short_id
     -- If last_reported_nearest_hour is a string, convert it to TIMESTAMP
-    AND bs.start_time = CAST(rb_origin.last_reported_nearest_hour AS TIMESTAMP)
+    AND bs.start_time = rb_origin.last_reported_nearest_hour
 LEFT JOIN 
     rawbikes AS rb_dest
 ON 
-    bs.destination_station_id = rb_dest.station_id
+    bs.destination_station_id = rb_dest.short_id
     -- If last_reported_nearest_hour is a string, convert it to TIMESTAMP
-    AND bs.start_time = CAST(rb_dest.last_reported_nearest_hour AS TIMESTAMP);
+    AND bs.start_time = rb_dest.last_reported_nearest_hour;
